@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="DTSec/DTSec.vcxproj" Id="28c4b275-3429-4fb6-b2c6-ff01a79107d5" />
+</Solution>
