@@ -17,13 +17,13 @@ std::string getLocalIPv4() {
 
     if (GetAdaptersAddresses(AF_INET, GAA_FLAG_INCLUDE_PREFIX, NULL, adapter, &bufLen) == NO_ERROR) {
         for (IP_ADAPTER_ADDRESSES* a = adapter; a; a = a->Next) {
-            if (a->OperStatus == IfOperStatusUp) { // aktif interface
+            if (a->OperStatus == IfOperStatusUp) {
                 for (IP_ADAPTER_UNICAST_ADDRESS* ua = a->FirstUnicastAddress; ua; ua = ua->Next) {
                     SOCKADDR_IN* sa_in = (SOCKADDR_IN*)ua->Address.lpSockaddr;
                     char ip[INET_ADDRSTRLEN];
                     inet_ntop(AF_INET, &(sa_in->sin_addr), ip, sizeof(ip));
                     ipStr = ip;
-                    break; // ilk aktif IP’yi al
+                    break;
                 }
             }
             if (!ipStr.empty()) break;
